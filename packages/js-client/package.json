@@ -1,0 +1,60 @@
+{
+  "name": "global-storage",
+  "version": "0.0.0",
+  "description": "globalStorage is a Javascript library with the same API as localStorage that allows you to store data in a centralized storage.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "test": "jest",
+    "lint": "eslint --fix --ext .ts,.tsx .",
+    "local-release": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrigadeHQ/javascript.git"
+  },
+  "keywords": [
+    "Onboarding",
+    "Tutorial",
+    "Intro",
+    "Checklist",
+    "Welcome",
+    "Tooltips",
+    "Tour",
+    "Walkthrough",
+    "Javascript"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-typescript": "^7.21.5",
+    "@types/jest": "^23.3.1",
+    "babel-jest": "^29.4.1",
+    "husky": "^8.0.3",
+    "jest": "^29.4.1",
+    "jest-config": "^29.3.1",
+    "jest-environment-jsdom": "^29.4.1",
+    "lint-staged": "^13.0.0",
+    "prettier": "^2.4.1",
+    "prop-types": "^15.8.1",
+    "ts-jest": "^29.1.0",
+    "tsup": "^6.7.0",
+    "typescript": "^4.9.4"
+  },
+  "author": "Frigade Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrigadeHQ/global-storage/issues"
+  },
+  "homepage": "https://github.com/FrigadeHQ/global-storage",
+  "dependencies": {
+    "cross-fetch": "^4.0.0"
+  },
+  "packageManager": "yarn@3.6.2"
+}

@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      # Only will build development stage from our dockerfile
+      target: build
+    env_file:
+        - .env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:6432/${POSTGRES_DB}?schema=public
+      DATABASE_READER_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:6432/${POSTGRES_DB}?schema=public
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/certs
+      - /app/schemas
+    # Run in dev Mode: npm run start:dev
+    command: npm run start:dev
+    ports:
+      - '4000:4000'
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+    restart: unless-stopped
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    networks:
+      - app-network
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    healthcheck:
+        test: ["CMD", "redis-cli", "ping"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+volumes:
+  docker-nest-postgres:
+
+networks:
+  app-network:
