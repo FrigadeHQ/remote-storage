@@ -18,7 +18,8 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "types": [
-      "node"
+      "node",
+      "jest"
     ]
   }
 }
