@@ -12,10 +12,7 @@ import { EntitiesService } from './entities.service'
 import { NotFoundInterceptor } from '../middlewares/not-found.interceptor'
 
 import { Actor, Entity } from './entities.interface'
-import {
-  HEADER_GLOBAL_STORAGE_INSTANCE_ID,
-  HEADER_GLOBAL_STORAGE_USER_ID,
-} from '../common/constants'
+import { HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID } from 'global-storage'
 
 const publicApiPrefix = '/entities/'
 

@@ -5,15 +5,7 @@ import * as fs from 'fs'
 import * as process from 'process'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppClusterService } from './appCluster.service'
-import {
-  HEADER_GLOBAL_STORAGE_INSTANCE_ID,
-  HEADER_GLOBAL_STORAGE_USER_ID,
-} from './common/constants'
-
-const httpsOptions = {
-  key: fs.readFileSync('/app/certs/server.key'),
-  cert: fs.readFileSync('/app/certs/server.crt'),
-}
+import { HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID } from 'global-storage'
 
 const CORS_OPTIONS = {
   origin: '*',
@@ -37,6 +29,16 @@ const CORS_OPTIONS = {
 }
 
 async function bootstrap() {
+  let httpsOptions
+  try {
+    httpsOptions = {
+      key: fs.readFileSync('/app/certs/server.key'),
+      cert: fs.readFileSync('/app/certs/server.crt'),
+    }
+  } catch (e) {
+    console.log('No https certificates found. Running in http mode')
+  }
+
   const fastifyAdapter = new FastifyAdapter({ https: httpsOptions })
   fastifyAdapter.enableCors(CORS_OPTIONS)
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, fastifyAdapter)

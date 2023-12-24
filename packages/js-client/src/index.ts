@@ -1,1 +1,2 @@
-export { GlobalStorage } from './core/global-storage';
+export { GlobalStorage } from './core/global-storage'
+export * from './core/constants'

@@ -1,15 +1,22 @@
 {
   "name": "global-storage",
-  "version": "0.0.0",
-  "description": "globalStorage is a Javascript library with the same API as localStorage that allows you to store data in a centralized storage.",
+  "version": "0.0.1",
+  "description": "globalStorage is a Javascript library with the same API as localStorage that allows you to store state in a centralized location.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "./dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
     "dev": "tsup --watch",
+    "build": "tsup",
     "test": "jest",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "local-release": "tsup"
@@ -55,6 +62,5 @@
   "homepage": "https://github.com/FrigadeHQ/global-storage",
   "dependencies": {
     "cross-fetch": "^4.0.0"
-  },
-  "packageManager": "yarn@3.6.2"
+  }
 }
