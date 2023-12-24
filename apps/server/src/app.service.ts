@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaWriterService } from './services/prisma/prisma-writer.service';
+import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class AppService {
-  constructor(private prisma: PrismaWriterService) {}
+  constructor() {}
 }

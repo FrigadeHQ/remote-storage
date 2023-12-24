@@ -4,8 +4,8 @@ import {
   Injectable,
   NestInterceptor,
   NotFoundException,
-} from '@nestjs/common';
-import { Observable, tap } from 'rxjs';
+} from '@nestjs/common'
+import { Observable, tap } from 'rxjs'
 
 @Injectable()
 export class NotFoundInterceptor implements NestInterceptor {
@@ -18,10 +18,10 @@ export class NotFoundInterceptor implements NestInterceptor {
             (data === undefined || data === null) &&
             context.switchToHttp().getRequest().method === 'GET'
           ) {
-            throw new NotFoundException();
+            throw new NotFoundException()
           }
-        }),
-      );
+        })
+      )
     }
   }
 }
