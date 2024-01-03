@@ -23,17 +23,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FrigadeHQ/javascript.git"
+    "url": "git+https://github.com/FrigadeHQ/central-storage.git"
   },
   "keywords": [
-    "Onboarding",
-    "Tutorial",
-    "Intro",
-    "Checklist",
-    "Welcome",
-    "Tooltips",
-    "Tour",
-    "Walkthrough",
+    "localStorage",
+    "centralStorage",
+    "central",
+    "storage",
     "Javascript"
   ],
   "devDependencies": {
@@ -57,9 +53,9 @@
   "author": "Frigade Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FrigadeHQ/global-storage/issues"
+    "url": "https://github.com/FrigadeHQ/central-storage/issues"
   },
-  "homepage": "https://github.com/FrigadeHQ/global-storage",
+  "homepage": "https://github.com/FrigadeHQ/central-storage",
   "dependencies": {
     "cross-fetch": "^4.0.0"
   }

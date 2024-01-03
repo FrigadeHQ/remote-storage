@@ -8,6 +8,6 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "global-storage-server"
+    "central-storage-server"
   ]
 }

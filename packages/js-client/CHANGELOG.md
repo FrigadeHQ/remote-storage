@@ -1,4 +1,4 @@
-# global-storage
+# central-storage
 
 ## 0.0.3
 
