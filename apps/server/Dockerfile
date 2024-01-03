@@ -19,7 +19,6 @@ RUN pnpm ci
 
 # Bundle app source
 COPY --chown=node:node . .
-RUN pnpm run prisma:generate
 RUN mkdir -p /app/certs
 RUN openssl genrsa -des3 -passout pass:x -out /app/certs/server.pass.key 2048 && \
     openssl rsa -passin pass:x -in /app/certs/server.pass.key -out /app/certs/server.key && \
@@ -60,7 +59,6 @@ ENV NODE_ENV production
 
 # Running `pnpm ci` removes the existing node_modules directory and passing in --only=production ensures that only the production dependencies are installed. This ensures that the node_modules directory is as optimized as possible
 RUN pnpm ci --only=production && pnpm cache clean --force
-RUN pnpm run prisma:generate
 
 ###################
 # PRODUCTION RUN
