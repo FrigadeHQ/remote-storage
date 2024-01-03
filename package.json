@@ -25,6 +25,5 @@
     "rimraf": "^5.0.0",
     "turbo": "^1.10.14"
   },
-  "author": "Frigade Inc.",
-  "packageManager": "pnpm"
+  "author": "Frigade Inc."
 }
