@@ -57,3 +57,5 @@ if (!hasSeenModals) {
   await centralStorage.setItem('hasSeenModals', true)
 }
 ```
+
+That's it!
