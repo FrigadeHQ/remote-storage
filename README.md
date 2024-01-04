@@ -71,7 +71,7 @@ The User ID is set when you create a new instance of centralStorage:
 ```javascript
 const centralStorage = new CentralStorage({
   serverUrl: 'https://server.centralstorage.dev',
-  userId: '123e4567-e89b-12d3-a456-426614174000',
+  userId: '123e4567-e89b-12d3-a456-426614174000'
 })
 ```
 
