@@ -5,7 +5,7 @@
 
 
 <H3 align="center"><strong>centralStorage</strong></H3>
-<div align="center">centralStorage is an open source library and server with the same API as localStorage that allows you to store data in a centralized storage.</div>
+<div align="center">centralStorage is a simple, open source library that combines the localStorage API with a single centralized location to store data.</div>
 <br />
 <div align="center">
 <a href="https://frigade.com">Website</a> 
@@ -18,12 +18,13 @@
 
 <br />
 
+
 ## Why
-Storing data in localStorage is great, but it's not a good solution for storing data that needs to be shared across multiple devices for the same user. For example, if you want to store whether a user has seen the announcement of a new feature, you can't do that with localStorage because it's only available on the device that the user is currently using.
+Storing data in localStorage is useful, but it's not a good solution when you store data that needs to be shared across multiple devices or browsers.
 
-You could  spin up a database, but that's a lot of work for storing simple impression events, and it's not very scalable to always involve backend engineering to store the state of a simple binary flag.
+For instance, let's say you want to hide an announcement of a new feature after a user has seen it already. If use localStorage to solve this, then if a user switches browsers or devices they will continue to get the experience over and over again.
 
-That's where centralStorage comes in. It's a simple, open source library and server that allows you to store data in a centralized storage.
+That's where centralStorage comes in. Similar to localStorage, centralStorage allows you to easily store new data on the fly, but as a centralized storage solution it is persistent for users across browsers and devices in order to provide a better end user experience.
 
 ## Features
 
