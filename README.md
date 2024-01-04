@@ -48,7 +48,7 @@ Import the library and use it like you would localStorage:
 import { CentralStorage } from 'central-storage'
 
 
-const centralStorage = new CentralStorage('https://central-storage.frigade.com')
+const centralStorage = new CentralStorage({ serverUrl: 'https://server.centralstorage.dev' })
 
 
 const hasSeenModals = await centralStorage.getItem('hasSeenModals')
@@ -59,3 +59,49 @@ if (!hasSeenModals) {
 ```
 
 That's it!
+
+## Documentation
+
+### User IDs
+
+centralStorage uses user IDs to identify users. A user ID is a string that uniquely identifies a user. It can be anything you want, but we recommend using a UUID.
+
+The User ID is set when you create a new instance of centralStorage:
+
+```javascript
+const centralStorage = new CentralStorage({
+  serverUrl: 'https://server.centralstorage.dev',
+  userId: '123e4567-e89b-12d3-a456-426614174000',
+})
+```
+
+### Instance IDs
+
+centralStorage uses instance IDs to identify the application instance that is making the request. An instance ID is a string that uniquely identifies an application instance. Typically you would use the same instance ID for all requests from the same application instance.
+
+The instance ID is set when you create a new instance of centralStorage:
+
+```javascript
+const centralStorage = new CentralStorage({
+  serverUrl: 'https://server.centralstorage.dev',
+  userId: '123e4567-e89b-12d3-a456-426614174000',
+  instanceId: 'my-cool-app'
+})
+```
+
+### Server
+
+We offer a free hosted community server at `https://server.centraldstorage.dev`. The server should not be used for production apps, but it's great for testing and prototyping.
+
+The server can be spun up using Docker in a few minutes. To get started, simply clone the repository and run `docker-compose up`:
+
+```bash
+git clone git@github.com:FrigadeHQ/central-storage.git
+cd central-storage/apps/server
+docker-compose up
+```
+
+The server runs on port 4000 by default.
+
+### API
+
