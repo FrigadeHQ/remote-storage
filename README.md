@@ -31,7 +31,7 @@ That's where centralStorage comes in. It's a simple, open source library and ser
 - 🚀 Works with all Javascript frameworks
 - 📦 Lightweight (~2 kB)
 - ✨ Open source and self-hostable
-- 🍦 Free community server
+- 🍦 Free hosted community server
 
 
 ## Quick start
