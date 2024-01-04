@@ -1,24 +1,14 @@
-import {
-  BadRequestException,
-  Controller,
-  Get,
-  Param,
-  Request,
-  UseInterceptors,
-} from '@nestjs/common'
-import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
-import { EntitiesService } from './entities.service'
+import {BadRequestException, Controller, Get, Param, Request,} from '@nestjs/common'
+import {ApiBearerAuth, ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger'
+import {EntitiesService} from './entities.service'
 
-import { NotFoundInterceptor } from '../middlewares/not-found.interceptor'
-
-import { Actor, Entity } from './entities.interface'
-import { HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID } from 'central-storage'
+import {Actor, Entity} from './entities.interface'
+import {HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID} from 'central-storage'
 
 const publicApiPrefix = '/entities/'
 
 @ApiBearerAuth()
 @ApiTags('entities')
-@UseInterceptors(NotFoundInterceptor)
 @Controller()
 export class EntitiesController {
   constructor(private readonly entitiesService: EntitiesService) {}

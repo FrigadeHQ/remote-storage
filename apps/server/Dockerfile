@@ -5,6 +5,7 @@
 FROM node:18.13.0-bullseye As build
 
 RUN apt-get update && apt-get install -y openssl
+RUN npm install -g pnpm
 
 # Create app directory
 WORKDIR /app
@@ -14,19 +15,12 @@ WORKDIR /app
 # Copying this first prevents re-running pnpm install on every code change.
 COPY --chown=node:node ./package*.json ./
 
-# Install app dependencies using the `pnpm ci` command instead of `pnpm install`
-RUN pnpm ci
+RUN pnpm install
 
 # Bundle app source
 COPY --chown=node:node . .
-RUN mkdir -p /app/certs
-RUN openssl genrsa -des3 -passout pass:x -out /app/certs/server.pass.key 2048 && \
-    openssl rsa -passin pass:x -in /app/certs/server.pass.key -out /app/certs/server.key && \
-    rm /app/certs/server.pass.key && \
-    openssl req -new -key /app/certs/server.key -out /app/certs/server.csr \
-        -subj "/C=US/ST=CA/L=SF/O=Frigade/OU=IT Department/CN=frigade.com" && \
-    openssl x509 -req -days 365 -in /app/certs/server.csr -signkey /app/certs/server.key -out /app/certs/server.crt && \
-    chown -R node:node /app/certs
+# Optionally add your own certs to use https
+RUN chown -R node:node /app/certs
 
 # Use the node user from the image (instead of the root user)
 USER node
