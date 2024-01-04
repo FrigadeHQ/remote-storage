@@ -51,9 +51,9 @@ import { CentralStorage } from 'central-storage'
 const centralStorage = new CentralStorage({ serverUrl: 'https://server.centralstorage.dev' })
 
 
-const hasSeenModals = await centralStorage.getItem('hasSeenNewFeature')
+const hasSeenNewFeature = await centralStorage.getItem('hasSeenNewFeature')
 
-if (!hasSeenModals) {
+if (!hasSeenNewFeature) {
   await centralStorage.setItem('hasSeenNewFeature', true)
 }
 ```
