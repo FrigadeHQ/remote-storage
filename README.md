@@ -42,7 +42,7 @@ Install the library:
 npm install central-storage
 ```
 
-Import the library:
+Import the library and use it like you would localStorage:
 
 ```javascript
 import { CentralStorage } from 'central-storage'
