@@ -1,5 +1,12 @@
 # remote-storage
 
+## 0.0.1
+
+### Patch Changes
+
+- abf6ee8: Initial release
+- c6d6be8: Bump to new version
+
 ## 0.0.3
 
 ### Patch Changes
