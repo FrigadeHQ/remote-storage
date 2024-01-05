@@ -104,5 +104,3 @@ docker-compose up
 
 The server runs on port 4000 by default.
 
-### API
-
