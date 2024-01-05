@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch'
 
-export class CentralStorage {
+export class RemoteStorage {
   private readonly serverAddress: string
   private readonly instanceId: string
   private readonly userId: string
@@ -28,7 +28,7 @@ export class CentralStorage {
     // Throw error if not initialized
     if (!this.serverAddress || !this.instanceId || !this.userId) {
       throw new Error(
-        'centralStorage has not been initialized. Please call centralStorage.init() first.'
+        'remoteStorage has not been initialized. Please call remoteStorage.init() first.'
       )
     }
 

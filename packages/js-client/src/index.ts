@@ -1,2 +1,2 @@
-export { CentralStorage } from './core/central-storage'
+export { RemoteStorage } from './core/remote-storage'
 export * from './core/constants'

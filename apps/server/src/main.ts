@@ -1,11 +1,11 @@
-import { NestFactory } from '@nestjs/core'
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
-import { AppModule } from './app.module'
+import {NestFactory} from '@nestjs/core'
+import {FastifyAdapter, NestFastifyApplication} from '@nestjs/platform-fastify'
+import {AppModule} from './app.module'
 import * as fs from 'fs'
 import * as process from 'process'
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
-import { AppClusterService } from './appCluster.service'
-import { HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID } from 'central-storage'
+import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger'
+import {AppClusterService} from './appCluster.service'
+import {HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID} from 'remote-storage'
 
 const CORS_OPTIONS = {
   origin: '*',
@@ -44,7 +44,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, fastifyAdapter)
 
   if (process.env.NODE_ENV === 'development') {
-    const options = new DocumentBuilder().setTitle('centralStorage API').setVersion('1.0').build()
+    const options = new DocumentBuilder().setTitle('remoteStorage API').setVersion('1.0').build()
     const document = SwaggerModule.createDocument(app, options)
 
     fs.writeFileSync('./swagger-spec.json', JSON.stringify(document))

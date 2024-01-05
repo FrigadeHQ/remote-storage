@@ -3,7 +3,7 @@ import {ApiBearerAuth, ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger
 import {EntitiesService} from './entities.service'
 
 import {Actor, Entity} from './entities.interface'
-import {HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID} from 'central-storage'
+import {HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID} from 'remote-storage'
 
 const publicApiPrefix = '/entities/'
 

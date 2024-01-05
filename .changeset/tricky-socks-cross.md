@@ -1,5 +1,5 @@
 ---
-'central-storage': patch
+'remote-storage': patch
 ---
 
 Bump to new version

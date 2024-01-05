@@ -1,4 +1,4 @@
-# central-storage
+# remote-storage
 
 ## 0.0.3
 
