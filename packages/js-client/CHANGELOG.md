@@ -1,5 +1,12 @@
 # remote-storage
 
+## 0.0.7
+
+### Patch Changes
+
+- c6c16f7: Updated README
+- 2403741: Updated readme
+
 ## 0.0.6
 
 ### Patch Changes
