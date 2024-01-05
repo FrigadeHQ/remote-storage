@@ -5,7 +5,7 @@
 
 
 <H3 align="center"><strong>remoteStorage</strong></H3>
-<div align="center">remoteStorage is a simple, open source library that combines the localStorage API with a single centralized location to store data.</div>
+<div align="center">remoteStorage is a simple library that combines the localStorage API with a remote server to persist data across browsers and devices.</div>
 <br />
 <div align="center">
 <a href="https://frigade.com">Website</a> 
@@ -22,16 +22,16 @@
 ## Why
 Storing data in localStorage is useful, but it's not a good solution when you store data that needs to be shared across multiple devices or browsers.
 
-For instance, let's say you want to hide an announcement of a new feature after a user has seen it already. If use localStorage to solve this, then if a user switches browsers or devices they will continue to get the experience over and over again.
+For instance, let's say you want to show a welcome modal to all new users that sign up for your product. If you use localStorage to track if a user has already seen this modal, your users will continue to get the experience over and over again every time they switch devices or browsers.
 
-That's where remoteStorage comes in. Similar to localStorage, remoteStorage allows you to easily store new data on the fly, but as a centralized storage solution it is persistent for users across browsers and devices in order to provide a better end user experience.
+That's where remoteStorage comes in. Using the same API as localStorage, remoteStorage allows you to easily read and write data on the fly while maintaining state across browsers and devices in order to provide a better user experience.
 
 ## Features
 
 - 🔧 Simple API (same as localStorage)
 - 🚀 Works with all Javascript frameworks
 - 📦 Lightweight (~2 kB)
-- ✨ Open source and self-hostable
+- ✨ Open source server and client (MIT license)
 - 🍦 Free hosted community server
 
 
