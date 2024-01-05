@@ -1,5 +1,11 @@
 # remote-storage
 
+## 0.0.6
+
+### Patch Changes
+
+- 5742325: Version bump
+
 ## 0.0.1
 
 ### Patch Changes
