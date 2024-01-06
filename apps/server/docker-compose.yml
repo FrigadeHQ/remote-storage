@@ -29,7 +29,8 @@ services:
       - '6379:6379'
     networks:
       - app-network
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes --save 60 1
+
     volumes:
       - redis_data:/data
     env_file:

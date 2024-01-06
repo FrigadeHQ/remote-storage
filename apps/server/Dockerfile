@@ -10,6 +10,8 @@ RUN npm install -g pnpm
 # Create app directory
 WORKDIR /app
 
+RUN mkdir -p /app/certs
+
 # Copy application dependency manifests to the container image.
 # A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
 # Copying this first prevents re-running pnpm install on every code change.
