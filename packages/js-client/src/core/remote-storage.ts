@@ -36,8 +36,8 @@ export class RemoteStorage {
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        HEADER_GLOBAL_STORAGE_INSTANCE_ID: this.instanceId,
-        HEADER_GLOBAL_STORAGE_USER_ID: this.userId,
+        HEADER_REMOTE_STORAGE_INSTANCE_ID: this.instanceId,
+        HEADER_REMOTE_STORAGE_USER_ID: this.userId,
       },
       body: JSON.stringify(data),
     })

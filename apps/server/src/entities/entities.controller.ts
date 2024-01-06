@@ -3,7 +3,7 @@ import {ApiBearerAuth, ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger
 import {EntitiesService} from './entities.service'
 
 import {Actor, Entity} from './entities.interface'
-import {HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID} from 'remote-storage'
+import {HEADER_REMOTE_STORAGE_INSTANCE_ID, HEADER_REMOTE_STORAGE_USER_ID} from 'remote-storage'
 
 const publicApiPrefix = '/entities/'
 
@@ -45,11 +45,11 @@ export class EntitiesController {
       throw new BadRequestException('No headers provided')
     }
 
-    const instanceId = headers[HEADER_GLOBAL_STORAGE_INSTANCE_ID]
+    const instanceId = headers[HEADER_REMOTE_STORAGE_INSTANCE_ID]
     if (!instanceId) {
       throw new BadRequestException('No instanceId provided')
     }
-    const userId = headers[HEADER_GLOBAL_STORAGE_USER_ID]
+    const userId = headers[HEADER_REMOTE_STORAGE_USER_ID]
     if (!userId) {
       throw new BadRequestException('No userId provided')
     }
