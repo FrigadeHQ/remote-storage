@@ -48,9 +48,7 @@ Import the library and use it like you would localStorage:
 ```javascript
 import { RemoteStorage } from 'remote-storage'
 
-
 const remoteStorage = new RemoteStorage({ serverUrl: 'https://server.centralstorage.dev' })
-
 
 const hasSeenNewFeature = await remoteStorage.getItem('hasSeenNewFeature')
 

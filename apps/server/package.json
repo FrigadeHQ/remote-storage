@@ -18,8 +18,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "prisma:generate": "npx prisma generate",
-    "prepare": "husky install"
+    "prisma:generate": "npx prisma generate"
   },
   "dependencies": {
     "@fastify/static": "^6.6.1",
@@ -33,7 +32,6 @@
     "@nestjs/schedule": "^3.0.2",
     "@nestjs/swagger": "^6.1.4",
     "remote-storage": "*",
-    "husky": "^8.0.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.7",

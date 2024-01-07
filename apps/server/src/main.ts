@@ -1,11 +1,11 @@
-import {NestFactory} from '@nestjs/core'
-import {FastifyAdapter, NestFastifyApplication} from '@nestjs/platform-fastify'
-import {AppModule} from './app.module'
+import { NestFactory } from '@nestjs/core'
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
+import { AppModule } from './app.module'
 import * as fs from 'fs'
 import * as process from 'process'
-import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger'
-import {AppClusterService} from './appCluster.service'
-import {HEADER_GLOBAL_STORAGE_INSTANCE_ID, HEADER_GLOBAL_STORAGE_USER_ID} from 'remote-storage'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+import { AppClusterService } from './appCluster.service'
+import { HEADER_REMOTE_STORAGE_INSTANCE_ID, HEADER_REMOTE_STORAGE_USER_ID } from 'remote-storage'
 
 const CORS_OPTIONS = {
   origin: '*',
