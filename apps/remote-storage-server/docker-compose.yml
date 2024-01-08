@@ -23,23 +23,24 @@ services:
       - app-network
     restart: unless-stopped
   redis:
-    image: redis
+    image: redis/redis-stack-server
     restart: always
     ports:
       - '6379:6379'
-    networks:
-      - app-network
-    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes --save 60 1
-
+    # Start redis stack with persistence
+    environment:
+      - REDIS_ARGS=--requirepass ${REDIS_PASSWORD} --appendonly yes --save 60 1
     volumes:
-      - redis_data:/data
+        - redis_data:/data
     env_file:
       - .env
+    networks:
+      - app-network
     healthcheck:
-        test: ["CMD", "redis-cli", "ping"]
-        interval: 10s
-        timeout: 5s
-        retries: 5
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 volumes:
   nest:
   redis_data:
