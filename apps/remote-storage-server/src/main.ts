@@ -33,13 +33,17 @@ const CORS_OPTIONS = {
 
 async function bootstrap() {
   let httpsOptions
-  try {
-    httpsOptions = {
-      key: fs.readFileSync('/app/certs/server.key'),
-      cert: fs.readFileSync('/app/certs/server.crt'),
+
+  if (process.env.REMOTE_STORAGE_SERVER_USE_HTTPS === 'true') {
+    console.log('Using https')
+    try {
+      httpsOptions = {
+        key: fs.readFileSync('/app/certs/server.key'),
+        cert: fs.readFileSync('/app/certs/server.crt'),
+      }
+    } catch (e) {
+      console.log('Invalid https certificate. Running in http mode', e)
     }
-  } catch (e) {
-    console.log('No https certificates found. Running in http mode')
   }
 
   const fastifyAdapter = new FastifyAdapter({ https: httpsOptions })
@@ -54,7 +58,10 @@ async function bootstrap() {
     SwaggerModule.setup('/api', app, document)
   }
 
-  await app.listen(process.env.REMOTE_STORAGE_SERVER_PORT ?? 4000, '0.0.0.0')
+  const port = process.env.REMOTE_STORAGE_SERVER_PORT ?? 4000
+
+  console.log('Listening on port', port)
+  await app.listen(port, '0.0.0.0')
 }
 
 if (process.env.NODE_ENV !== 'production') {
