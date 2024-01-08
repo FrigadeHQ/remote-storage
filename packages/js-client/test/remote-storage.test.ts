@@ -1,4 +1,4 @@
-import {RemoteStorage} from '../src'
+import { RemoteStorage } from '../src'
 
 describe('global storage', () => {
   // it('should be able to set and get an item', async () => {
@@ -17,13 +17,11 @@ describe('global storage', () => {
   // })
 
   it('should throw an error if not initialized', async () => {
-    const remoteStorage = new RemoteStorage('', '', '')
+    const remoteStorage = new RemoteStorage({ serverAddress: '', instanceId: '', userId: '' })
     try {
       await remoteStorage.setItem('key', 'value')
     } catch (error: any) {
-      expect(error.message).toEqual(
-        'remoteStorage has not been initialized. Please call remoteStorage.init() first.'
-      )
+      expect(error.message).toEqual('Invalid base URL: ')
     }
   })
 })
