@@ -24,7 +24,7 @@ importers:
         specifier: ^1.10.14
         version: 1.10.14
 
-  apps/server:
+  apps/remote-storage-server:
     dependencies:
       '@fastify/static':
         specifier: ^6.6.1
@@ -2968,13 +2968,13 @@ packages:
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
     dependencies:
       '@types/eslint': 8.56.1
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.5
     dev: true
 
   /@types/eslint@8.56.1:
     resolution: {integrity: sha512-18PLWRzhy9glDQp3+wOgfLYRWlhgX0azxgJ63rdpoUHyrC9z0f5CkFburjQx4uD7ZCruw85ZtMt6K+L+R8fLJQ==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
     dev: true
 
@@ -5190,7 +5190,7 @@ packages:
       avvio: 8.2.1
       fast-content-type-parse: 1.1.0
       find-my-way: 7.7.0
-      light-my-request: 5.8.0
+      light-my-request: 5.11.0
       pino: 8.17.2
       process-warning: 2.3.2
       proxy-addr: 2.0.7
