@@ -54,7 +54,7 @@ async function bootstrap() {
     SwaggerModule.setup('/api', app, document)
   }
 
-  await app.listen(4000, '0.0.0.0')
+  await app.listen(process.env.REMOTE_STORAGE_SERVER_PORT ?? 4000, '0.0.0.0')
 }
 
 if (process.env.NODE_ENV !== 'production') {
