@@ -5,7 +5,10 @@ import * as fs from 'fs'
 import * as process from 'process'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppClusterService } from './appCluster.service'
-import { HEADER_REMOTE_STORAGE_INSTANCE_ID, HEADER_REMOTE_STORAGE_USER_ID } from 'remote-storage'
+import {
+  HEADER_REMOTE_STORAGE_INSTANCE_ID,
+  HEADER_REMOTE_STORAGE_USER_ID,
+} from './common/constants'
 
 const CORS_OPTIONS = {
   origin: '*',

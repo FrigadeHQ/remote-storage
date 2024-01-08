@@ -21,7 +21,6 @@ describe('entities/', () => {
 
     it('should return a 200 on root', async () => {
       const res = await request(app.getHttpServer()).get('/')
-      console.log(res)
       expect(res.statusCode).toEqual(200)
     })
   })

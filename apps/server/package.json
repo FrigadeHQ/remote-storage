@@ -31,7 +31,6 @@
     "@nestjs/platform-fastify": "^9.3.8",
     "@nestjs/schedule": "^3.0.2",
     "@nestjs/swagger": "^6.1.4",
-    "remote-storage": "*",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.7",

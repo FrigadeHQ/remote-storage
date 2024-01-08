@@ -1,9 +1,12 @@
-import {BadRequestException, Controller, Get, Param, Request,} from '@nestjs/common'
-import {ApiBearerAuth, ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger'
-import {EntitiesService} from './entities.service'
+import { BadRequestException, Controller, Get, Param, Request } from '@nestjs/common'
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
+import { EntitiesService } from './entities.service'
 
-import {Actor, Entity} from './entities.interface'
-import {HEADER_REMOTE_STORAGE_INSTANCE_ID, HEADER_REMOTE_STORAGE_USER_ID} from 'remote-storage'
+import { Actor, Entity } from './entities.interface'
+import {
+  HEADER_REMOTE_STORAGE_INSTANCE_ID,
+  HEADER_REMOTE_STORAGE_USER_ID,
+} from '../common/constants'
 
 const publicApiPrefix = '/entities/'
 
