@@ -16,7 +16,7 @@ services:
       - /app/schemas
     command: pnpm run start
     ports:
-      - '4000:4000'
+      - '${REMOTE_STORAGE_SERVER_PORT}:${REMOTE_STORAGE_SERVER_PORT}'
     depends_on:
       - redis
     networks:

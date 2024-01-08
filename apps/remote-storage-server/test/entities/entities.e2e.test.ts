@@ -3,6 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing'
 import { INestApplication } from '@nestjs/common'
 import { EntitiesModule } from '../../src/entities/entities.module'
 import { AppModule } from '../../src/app.module'
+import { RedisService } from '../../src/services/redis/redis.service'
 
 describe('entities/', () => {
   let app: INestApplication
@@ -11,9 +12,15 @@ describe('entities/', () => {
   })
   describe('without appropriate headers', () => {
     beforeAll(async () => {
+      const redisService = new RedisService()
       const testModule: TestingModule = await Test.createTestingModule({
         imports: [EntitiesModule, AppModule],
-      }).compile()
+      })
+        .overrideProvider(RedisService)
+        .useValue(redisService)
+        .compile()
+
+      jest.spyOn(redisService, 'onModuleInit').mockImplementation(async () => {})
 
       app = testModule.createNestApplication()
       await app.init()

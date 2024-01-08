@@ -1,6 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
 import { Actor, Entity } from './entities.interface'
 import { RedisService } from '../services/redis/redis.service'
+
+const MAX_ENTITY_SIZE_BYTES = 1000000
 
 @Injectable()
 export class EntitiesService {
@@ -18,6 +20,10 @@ export class EntitiesService {
   }
 
   async set(actor: Actor, key: string, value: any): Promise<void> {
+    if (JSON.stringify(value).length > MAX_ENTITY_SIZE_BYTES) {
+      throw new BadRequestException(`Entity size exceeds ${MAX_ENTITY_SIZE_BYTES} bytes`)
+    }
+
     const entityKey = this.getEntityKey(actor, key)
 
     return await this.redisService.set(entityKey, value)

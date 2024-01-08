@@ -1,6 +1,7 @@
 [![npm version](https://img.shields.io/npm/v/remote-storage)](https://www.npmjs.com/package/global-storage)
-[![npm version](https://github.com/FrigadeHQ/react-native-onboard/actions/workflows/tests.yml/badge.svg)](https://github.com/FrigadeHQ/react-native-onboard/actions/workflows/tests.yml)
-[![npm license](https://img.shields.io/npm/l/react-native-onboard)](https://www.npmjs.com/package/react-native-onboard)
+[![tests](https://github.com/FrigadeHQ/remote-storage/actions/workflows/tests.yml/badge.svg)](https://github.com/FrigadeHQ/remote-storage/actions/workflows/tests.yml)
+[![npm license](https://img.shields.io/npm/l/remote-storage)](https://www.npmjs.com/package/remote-storage)
+[![typescript](https://camo.githubusercontent.com/0f9fcc0ac1b8617ad4989364f60f78b2d6b32985ad6a508f215f14d8f897b8d3/68747470733a2f2f62616467656e2e6e65742f62616467652f547970655363726970742f7374726963742532302546302539462539322541412f626c7565)](https://www.npmjs.com/package/remote-storage)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 
@@ -30,14 +31,14 @@ That's where remoteStorage comes in. Using the same API as localStorage, remoteS
 
 - 🔧 Simple API (same as localStorage)
 - 🚀 Works with all Javascript frameworks
-- 📦 Lightweight (~2 kB)
+- 📦 Lightweight (~1 kB minified)
 - ✨ Open source server and client (MIT license)
 - 🍦 Free hosted community server
 
 
 ## Quick start
 
-Install the library:
+Install the library using your favorite package manager:
 
 ```bash
 npm install remote-storage
@@ -48,7 +49,7 @@ Import the library and use it like you would localStorage:
 ```javascript
 import { RemoteStorage } from 'remote-storage'
 
-const remoteStorage = new RemoteStorage({ serverUrl: 'https://server.centralstorage.dev' })
+const remoteStorage = new RemoteStorage({ serverUrl: 'https://rs.frigade.com' })
 
 const hasSeenNewFeature = await remoteStorage.getItem('hasSeenNewFeature')
 
@@ -69,7 +70,7 @@ The User ID is set when you create a new instance of remoteStorage:
 
 ```javascript
 const remoteStorage = new RemoteStorage({
-  serverUrl: 'https://server.centralstorage.dev',
+  serverUrl: 'https://rs.frigade.com',
   userId: '123e4567-e89b-12d3-a456-426614174000'
 })
 ```
@@ -82,7 +83,7 @@ The instance ID is set when you create a new instance of remoteStorage:
 
 ```javascript
 const remoteStorage = new RemoteStorage({
-  serverUrl: 'https://server.centralstorage.dev',
+  serverUrl: 'https://rs.frigade.com',
   userId: '123e4567-e89b-12d3-a456-426614174000',
   instanceId: 'my-cool-app'
 })
@@ -90,16 +91,8 @@ const remoteStorage = new RemoteStorage({
 
 ### Server
 
-We offer a free hosted community server at `https://server.centraldstorage.dev`. The server should not be used for production apps, but it's great for testing and prototyping.
+We offer a free hosted community server at `https://rs.frigade.com`. This hosted server should not be used for production apps, but it's great for testing and prototyping.
 
-The server can be spun up using Docker in a few minutes. To get started, simply clone the repository and run `docker-compose up`:
-
-```bash
-git clone git@github.com:FrigadeHQ/remote-storage.git
-cd remote-storage/apps/server
-docker-compose up
-```
-
-The server runs on port 4000 by default.
+The server can be spun up using Docker in a few minutes. See the [server documentation](/apps/remote-storage-server/README.md) for more information.
 
 
