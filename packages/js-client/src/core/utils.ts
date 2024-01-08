@@ -13,3 +13,7 @@ export function uuid() {
     return (c == 'x' ? r : (r & 0x7) | 0x8).toString(16)
   })
 }
+
+export function isWeb() {
+  return typeof window !== 'undefined'
+}
