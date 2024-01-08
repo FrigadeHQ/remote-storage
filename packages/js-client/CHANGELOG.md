@@ -1,5 +1,12 @@
 # remote-storage
 
+## 0.0.8
+
+### Patch Changes
+
+- 6a52daf: Updated readme
+- edd393f: Fix lockfile issues
+
 ## 0.0.7
 
 ### Patch Changes
