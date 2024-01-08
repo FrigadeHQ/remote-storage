@@ -1,6 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/remote-storage)](https://www.npmjs.com/package/global-storage)
-[![npm version](https://github.com/FrigadeHQ/react-native-onboard/actions/workflows/tests.yml/badge.svg)](https://github.com/FrigadeHQ/react-native-onboard/actions/workflows/tests.yml)
-[![npm license](https://img.shields.io/npm/l/react-native-onboard)](https://www.npmjs.com/package/react-native-onboard)
+[![npm version](https://github.com/FrigadeHQ/remote-storage/actions/workflows/tests.yml/badge.svg)](https://github.com/FrigadeHQ/remote-storage/actions/workflows/tests.yml)
+[![npm license](https://img.shields.io/npm/l/remote-storage)](https://www.npmjs.com/package/remote-storage)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 
@@ -37,7 +37,7 @@ That's where remoteStorage comes in. Using the same API as localStorage, remoteS
 
 ## Quick start
 
-Install the library:
+Install the library using your favorite package manager:
 
 ```bash
 npm install remote-storage
@@ -48,9 +48,7 @@ Import the library and use it like you would localStorage:
 ```javascript
 import { RemoteStorage } from 'remote-storage'
 
-
-const remoteStorage = new RemoteStorage({ serverUrl: 'https://server.centralstorage.dev' })
-
+const remoteStorage = new RemoteStorage({ serverUrl: 'https://rs.frigade.com' })
 
 const hasSeenNewFeature = await remoteStorage.getItem('hasSeenNewFeature')
 
@@ -71,7 +69,7 @@ The User ID is set when you create a new instance of remoteStorage:
 
 ```javascript
 const remoteStorage = new RemoteStorage({
-  serverUrl: 'https://server.centralstorage.dev',
+  serverUrl: 'https://rs.frigade.com',
   userId: '123e4567-e89b-12d3-a456-426614174000'
 })
 ```
@@ -84,7 +82,7 @@ The instance ID is set when you create a new instance of remoteStorage:
 
 ```javascript
 const remoteStorage = new RemoteStorage({
-  serverUrl: 'https://server.centralstorage.dev',
+  serverUrl: 'https://rs.frigade.com',
   userId: '123e4567-e89b-12d3-a456-426614174000',
   instanceId: 'my-cool-app'
 })
