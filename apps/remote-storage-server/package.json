@@ -17,8 +17,7 @@
     "test:e2e": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "prisma:generate": "npx prisma generate"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@fastify/static": "^6.6.1",
@@ -31,6 +30,7 @@
     "@nestjs/platform-fastify": "^9.3.8",
     "@nestjs/schedule": "^3.0.2",
     "@nestjs/swagger": "^6.1.4",
+    "redis": "^4.6.12",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.7",

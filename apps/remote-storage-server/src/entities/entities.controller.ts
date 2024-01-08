@@ -1,4 +1,4 @@
-import { BadRequestException, Controller, Get, Param, Request } from '@nestjs/common'
+import { BadRequestException, Controller, Delete, Get, Param, Put, Request } from '@nestjs/common'
 import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { EntitiesService } from './entities.service'
 
@@ -10,22 +10,13 @@ import {
 
 const publicApiPrefix = '/entities/'
 
+const MAX_KEY_LENGTH = 255
+
 @ApiBearerAuth()
 @ApiTags('entities')
 @Controller()
 export class EntitiesController {
   constructor(private readonly entitiesService: EntitiesService) {}
-
-  // API:
-  //   GET
-  // /api/entity/<key>
-  //
-  //
-  //   PUT (upsert)
-  // /api/entity/<key>
-  //
-  //   DELETE
-  // /api/entity/<key>
 
   @ApiOperation({ summary: 'Get a entity by key' })
   @ApiResponse({
@@ -39,6 +30,28 @@ export class EntitiesController {
     const entity = await this.entitiesService.get(actor, params.key)
 
     return entity
+  }
+
+  @ApiOperation({ summary: 'Set a entity by key' })
+  @ApiResponse({
+    status: 201,
+    description: 'The entity has been successfully created or updated.',
+  })
+  @Put(publicApiPrefix + ':key')
+  async set(@Request() request: Request, @Param() params): Promise<void> {
+    const actor = this.validateRequest(request)
+    await this.entitiesService.set(actor, params.key, request.body)
+  }
+
+  @ApiOperation({ summary: 'Delete a entity by key' })
+  @ApiResponse({
+    status: 200,
+    description: 'The entity has been successfully deleted.',
+  })
+  @Delete(publicApiPrefix + ':key')
+  async delete(@Request() request: Request, @Param() params): Promise<void> {
+    const actor = this.validateRequest(request)
+    await this.entitiesService.delete(actor, params.key)
   }
 
   private validateRequest(request: Request): Actor | null {
@@ -55,6 +68,14 @@ export class EntitiesController {
     const userId = headers[HEADER_REMOTE_STORAGE_USER_ID]
     if (!userId) {
       throw new BadRequestException('No userId provided')
+    }
+
+    if (instanceId.length > MAX_KEY_LENGTH) {
+      throw new BadRequestException(`instanceId cannot be longer than ${MAX_KEY_LENGTH} characters`)
+    }
+
+    if (userId.length > MAX_KEY_LENGTH) {
+      throw new BadRequestException(`userId cannot be longer than ${MAX_KEY_LENGTH} characters`)
     }
 
     return {

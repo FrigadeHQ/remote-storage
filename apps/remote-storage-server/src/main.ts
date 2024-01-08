@@ -58,7 +58,7 @@ async function bootstrap() {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  console.log('Running in single instance pre-prod mode')
+  console.log('Running in single instance dev mode')
   bootstrap()
 } else {
   console.log('Running in cluster mode')
