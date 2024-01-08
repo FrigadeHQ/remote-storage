@@ -105,3 +105,6 @@ remoteStorage should only be used for non-sensitive data. We recommend using it 
 
 localStorage is a browser API that allows you to store data in the browser. The data is stored locally on the user's device and is not shared across devices or browsers. remoteStorage is a library that combines the localStorage API with a remote server to persist data across browsers and devices.
 
+#### Can't anyone just guess a user ID and access someone else's data?
+
+Yes, but that's why you should use a non-iterable UUID for your user IDs. This makes it impossible for users to guess other user IDs and access their data unless they know the user ID.
