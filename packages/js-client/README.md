@@ -1,7 +1,6 @@
 [![npm version](https://img.shields.io/npm/v/remote-storage)](https://www.npmjs.com/package/global-storage)
 [![tests](https://github.com/FrigadeHQ/remote-storage/actions/workflows/tests.yml/badge.svg)](https://github.com/FrigadeHQ/remote-storage/actions/workflows/tests.yml)
 [![npm license](https://img.shields.io/npm/l/remote-storage)](https://www.npmjs.com/package/remote-storage)
-[![typescript](https://camo.githubusercontent.com/0f9fcc0ac1b8617ad4989364f60f78b2d6b32985ad6a508f215f14d8f897b8d3/68747470733a2f2f62616467656e2e6e65742f62616467652f547970655363726970742f7374726963742532302546302539462539322541412f626c7565)](https://www.npmjs.com/package/remote-storage)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 
@@ -64,7 +63,7 @@ That's it!
 
 ### User IDs
 
-remoteStorage uses user IDs to identify users. A user ID is a string that uniquely identifies a user. It can be anything you want, but we recommend using a UUID.
+remoteStorage uses user IDs to identify users. A user ID is a string that uniquely identifies a user. It can be anything you want, but we recommend using a non-iterable UUID to prevent users from guessing other user IDs and accessing their data.
 
 The User ID is set when you create a new instance of remoteStorage:
 
@@ -95,4 +94,14 @@ We offer a free hosted community server at `https://rs.frigade.com`. This hosted
 
 The server can be spun up using Docker in a few minutes. See the [server documentation](/apps/remote-storage-server/README.md) for more information.
 
+
+### FAQ
+
+#### What data should I store in remoteStorage?
+
+remoteStorage should only be used for non-sensitive data. We recommend using it for things like user preferences, settings, and other non-sensitive data. Due to the nature of the public API, it's not a good fit for storing sensitive data like passwords or PII.
+
+#### How is remoteStorage different from localStorage?
+
+localStorage is a browser API that allows you to store data in the browser. The data is stored locally on the user's device and is not shared across devices or browsers. remoteStorage is a library that combines the localStorage API with a remote server to persist data across browsers and devices.
 
