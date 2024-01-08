@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.0
+
+### Major Changes
+
+- 9d909aa: Initial release
+
 ## 0.0.9
 
 ### Patch Changes
