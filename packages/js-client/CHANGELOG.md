@@ -1,5 +1,11 @@
 # remote-storage
 
+## 0.0.9
+
+### Patch Changes
+
+- 50b23a1: Updated readme
+
 ## 0.0.8
 
 ### Patch Changes
