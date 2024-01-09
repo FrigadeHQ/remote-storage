@@ -27,10 +27,19 @@
   },
   "keywords": [
     "localStorage",
+    "local storage",
     "remoteStorage",
-    "central",
+    "remote storage",
+    "local",
+    "remote",
     "storage",
-    "Javascript"
+    "Javascript",
+    "feature flags",
+    "user flags",
+    "browser",
+    "device",
+    "web"
+
   ],
   "devDependencies": {
     "@babel/core": "^7.15.8",
