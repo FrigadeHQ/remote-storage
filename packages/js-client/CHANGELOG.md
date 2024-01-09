@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.3
+
+### Patch Changes
+
+- ca170a5: Updated default server url to be api.remote.storage
+
 ## 1.0.2
 
 ### Patch Changes
