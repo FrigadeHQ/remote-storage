@@ -62,4 +62,11 @@ describe('global storage', () => {
     const value = await remoteStorage.getItem<{ foo: string }>('key')
     expect(value).toEqual({ foo: 'bar' })
   })
+
+  it('works without setting server address', async () => {
+    const remoteStorage = new RemoteStorage()
+    await remoteStorage.setItem('key', 'value')
+    const value = await remoteStorage.getItem('key')
+    expect(value).toEqual('value')
+  })
 })
