@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.1
+
+### Patch Changes
+
+- 9357424: Updated default server address
+
 ## 1.0.0
 
 ### Major Changes
