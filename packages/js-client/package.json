@@ -1,6 +1,6 @@
 {
   "name": "remote-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "remoteStorage is a simple library that combines the localStorage API with a remote server to persist data across browsers and devices.",
   "type": "module",
   "main": "./dist/index.js",
