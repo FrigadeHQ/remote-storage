@@ -1,6 +1,5 @@
 import 'styles/globals.scss'
 
-
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import { NextSeo } from 'next-seo'
@@ -24,7 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
           type: 'website',
           url: siteUrl,
           title,
-          description: description + '.',
+          description:
+            'remoteStorage is a simple library that combines the localStorage API with a remote server to persist data across browsers and devices.',
           images: [
             {
               url: `${siteUrl}/og.png`,
