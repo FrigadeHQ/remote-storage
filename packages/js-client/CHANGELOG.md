@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.2
+
+### Patch Changes
+
+- 948f834: Fixes an issue where empty config was giving typescript errors
+
 ## 1.0.1
 
 ### Patch Changes
