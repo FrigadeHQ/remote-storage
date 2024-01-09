@@ -48,13 +48,13 @@ Import the library and use it like you would localStorage:
 ```javascript
 import { RemoteStorage } from 'remote-storage'
 
-const remoteStorage = new RemoteStorage()
+const remoteStorage = new RemoteStorage({ userId: "my-user-id" })
 
 const hasSeenNewFeature = await remoteStorage.getItem('hasSeenNewFeature')
 
 if (!hasSeenNewFeature) {
   await remoteStorage.setItem('hasSeenNewFeature', true)
-  // Show your new feature!
+  // Highlight your new and exciting feature!
 }
 ```
 
@@ -73,6 +73,8 @@ const remoteStorage = new RemoteStorage({
   userId: '123e4567-e89b-12d3-a456-426614174000'
 })
 ```
+
+If you don't provide a user ID, remoteStorage will generate a random UUID which will change every time the user visits your site. This is useful for testing, but defeats the purpose of remoteStorage since the data will not persist across devices or browsers.
 
 ### Instance IDs
 

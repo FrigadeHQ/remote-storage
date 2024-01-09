@@ -1,15 +1,11 @@
 import styles from 'styles/index.module.scss'
 import React from 'react'
-import { AnimatePresence, AnimateSharedLayout, motion, MotionProps, useInView } from 'framer-motion'
-import {
-  CopyIcon,
-  GitHubIcon,
-  Code,
-  CopiedIcon,
-} from 'components'
+import { useInView } from 'framer-motion'
+import { Code, CopiedIcon, CopyIcon, GitHubIcon } from 'components'
+
+const packageJson = require('../../../packages/js-client/package.json')
 
 export default function Index() {
-
   return (
     <main className={styles.main}>
       <div className={styles.content}>
@@ -76,12 +72,13 @@ function GitHubButton() {
 function Codeblock() {
   const code = `import { RemoteStorage } from 'remote-storage'
 
-const remoteStorage = new RemoteStorage()
+const remoteStorage = new RemoteStorage({ userId: "my-user-id" })
 
 const hasSeenNewFeature = await remoteStorage.getItem('hasSeenNewFeature')
 
 if (!hasSeenNewFeature) {
   await remoteStorage.setItem('hasSeenNewFeature', true)
+  // Highlight your new and exciting feature!
 }`
 
   return (
@@ -96,7 +93,7 @@ if (!hasSeenNewFeature) {
 //////////////////////////////////////////////////////////////////
 
 function VersionBadge() {
-  return <span className={styles.versionBadge}>v1.0.2</span>
+  return <span className={styles.versionBadge}>v{packageJson.version}</span>
 }
 
 function Footer() {
@@ -110,12 +107,12 @@ function Footer() {
       <div className={styles.footerText}>
         Created by{' '}
         <a href="https://frigade.com" target="_blank" rel="noopener noreferrer">
-          <img src="/frigade-logo.png" alt="Frigade logo"/>
+          <img src="/frigade-logo.png" alt="Frigade logo" />
           Frigade
         </a>{' '}
-        with web design from {' '}
+        with web design from{' '}
         <a href="https://cmdk.paco.me" target="_blank" rel="noopener noreferrer">
-          <img src="/cmdk.svg" alt="cmdk logo"/>
+          <img src="/cmdk.svg" alt="cmdk logo" />
           cmdk
         </a>
       </div>
