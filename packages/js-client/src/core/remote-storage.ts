@@ -5,8 +5,18 @@ import { HEADER_REMOTE_STORAGE_INSTANCE_ID, HEADER_REMOTE_STORAGE_USER_ID } from
 const apiPrefix = `/entities/`
 
 interface RemoteStorageProps {
+  /**
+   * The server address to use for remote storage. Defaults to https://rs.frigade.com
+   */
   serverAddress: string
+  /**
+   * The user ID to use for remote storage. Defaults to a random UUID if not provided.
+   */
   userId?: string
+  /**
+   * The instance ID to use for remote storage. Defaults to "default"
+   * Instance IDs are used to create a distinct namespace for your application and should not change for the same application.
+   */
   instanceId?: string
 }
 
@@ -16,7 +26,7 @@ export class RemoteStorage {
   private readonly userId: string
 
   constructor({ serverAddress, userId, instanceId }: RemoteStorageProps) {
-    this.serverAddress = serverAddress
+    this.serverAddress = serverAddress ?? 'https://rs.frigade.com'
     this.instanceId = instanceId ?? 'default'
     this.userId = userId ?? this.getUserId()
   }

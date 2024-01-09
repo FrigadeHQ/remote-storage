@@ -20,6 +20,9 @@ export class EntitiesService {
   }
 
   async set(actor: Actor, key: string, value: any): Promise<void> {
+    if (!key || !value) {
+      throw new BadRequestException('Key or value not provided')
+    }
     if (JSON.stringify(value).length > MAX_ENTITY_SIZE_BYTES) {
       throw new BadRequestException(`Entity size exceeds ${MAX_ENTITY_SIZE_BYTES} bytes`)
     }
@@ -30,6 +33,9 @@ export class EntitiesService {
   }
 
   async delete(actor: Actor, key: string): Promise<void> {
+    if (!key) {
+      throw new BadRequestException('Key not provided')
+    }
     const entityKey = this.getEntityKey(actor, key)
 
     return await this.redisService.delete(entityKey)
