@@ -8,9 +8,9 @@
 <div align="center">remoteStorage is a simple library that combines the localStorage API with a remote server to persist data across browsers and devices.</div>
 <br />
 <div align="center">
-<a href="https://github.com/FrigadeHQ/remote-storage">Website</a> 
+<a href="https://remote.storage">Website</a> 
 <span> · </span>
-<a href="https://codesandbox.io/p/sandbox/remote-storage-demo-35hgqz?file=%2Fsrc%2Findex.ts">Demo</a> 
+<a href="https://codesandbox.io/p/sandbox/remote-storage-demo-35hgqz?file=%2Fsrc%2Findex.ts">Live Demo</a> 
 <span> · </span>
 <a href="https://github.com/FrigadeHQ/remote-storage">Source</a> 
 <span> · </span>
@@ -54,6 +54,7 @@ const hasSeenNewFeature = await remoteStorage.getItem('hasSeenNewFeature')
 
 if (!hasSeenNewFeature) {
   await remoteStorage.setItem('hasSeenNewFeature', true)
+  // Show your new feature!
 }
 ```
 
@@ -88,12 +89,12 @@ const remoteStorage = new RemoteStorage({
 
 ### Server
 
-We offer a free hosted community server at `https://rs.frigade.com` (the default behavior if no `serverAddress` is provided). This hosted server should not be used for production apps, but it's great for testing and prototyping.
+We offer a free hosted community server at `https://api.remote.storage` (the default behavior if no `serverAddress` is provided). This hosted server should not be used for production apps, but it's great for testing and prototyping.
 
 To use a different server, simply pass the `serverAddress` option when creating a new instance of remoteStorage:
 ```javascript
 const remoteStorage = new RemoteStorage({
-  serverAddress: 'https://rs.frigade.com',
+  serverAddress: 'https://api.remote.storage',
   userId: '123e4567-e89b-12d3-a456-426614174000',
   instanceId: 'my-cool-app'
 })
@@ -115,3 +116,4 @@ localStorage is a browser API that allows you to store data in the browser. The 
 #### Can't anyone just guess a user ID and access someone else's data?
 
 Yes. For this reason, we recommend using a non-iterable UUID for your user IDs. This makes it nearly impossible for users to guess other user IDs and access their data unless they know the user ID.
+
