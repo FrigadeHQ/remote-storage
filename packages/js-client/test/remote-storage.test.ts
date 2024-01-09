@@ -4,7 +4,7 @@ import { uuid } from '../src/core/utils'
 describe('global storage', () => {
   function getConfig() {
     return {
-      serverAddress: 'https://rs.frigade.com',
+      serverAddress: 'https://api.remote.storage',
       instanceId: uuid(),
       userId: uuid(),
     }
@@ -22,7 +22,6 @@ describe('global storage', () => {
     await remoteStorage.setItem('key', 'value')
     await remoteStorage.removeItem('key')
     const value = await remoteStorage.getItem('key')
-    console.log(value, typeof value)
     expect(value).toEqual(null)
   })
 

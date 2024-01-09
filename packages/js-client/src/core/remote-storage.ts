@@ -27,7 +27,7 @@ export class RemoteStorage {
 
   constructor(config?: RemoteStorageConfig) {
     const { serverAddress, instanceId, userId } = config ?? {}
-    this.serverAddress = serverAddress ?? 'https://rs.frigade.com'
+    this.serverAddress = serverAddress ?? 'https://api.remote.storage'
     this.instanceId = instanceId ?? 'default'
     this.userId = userId ?? this.getUserId()
   }
