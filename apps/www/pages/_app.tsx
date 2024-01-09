@@ -8,6 +8,7 @@ import Head from 'next/head'
 const title = 'remoteStorage'
 const description = 'Easily persist data across browsers and devices.'
 const siteUrl = 'https://remote.storage'
+const packageJson = require('../../../packages/js-client/package.json')
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,13 +19,12 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <NextSeo
         title={`${description} — ${title}`}
-        description={description}
+        description={packageJson.description}
         openGraph={{
           type: 'website',
           url: siteUrl,
           title,
-          description:
-            'remoteStorage is a simple library that combines the localStorage API with a remote server to persist data across browsers and devices.',
+          description: packageJson.description,
           images: [
             {
               url: `${siteUrl}/og.png`,
