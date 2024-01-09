@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      # Only will build development stage from our dockerfile
+      target: build
+    env_file:
+        - .env
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/certs
+      - /app/schemas
+    command: pnpm run start
+    ports:
+      - '${REMOTE_STORAGE_SERVER_PORT}:${REMOTE_STORAGE_SERVER_PORT}'
+    depends_on:
+      - redis
+    networks:
+      - app-network
+    restart: unless-stopped
+  redis:
+    image: redis/redis-stack-server
+    restart: always
+    ports:
+      - '6379:6379'
+    # Start redis stack with persistence
+    environment:
+      - REDIS_ARGS=--requirepass ${REDIS_PASSWORD} --appendonly yes --save 60 1
+    volumes:
+        - redis_data:/data
+    env_file:
+      - .env
+    networks:
+      - app-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  nest:
+  redis_data:
+
+networks:
+  app-network:
