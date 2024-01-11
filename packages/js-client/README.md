@@ -116,7 +116,7 @@ localStorage is a browser API that allows you to store data in the browser. The 
 
 #### Can't anyone just guess a user ID and access someone else's data?
 
-Yes. For this reason, we recommend using a non-iterable UUID for your user IDs. This makes it nearly impossible for users to guess other user IDs and access their data unless they know the user ID.
+You can secure your calls to remote-storage by using a secret unique UUID generated with a package such as [uuid](https://www.npmjs.com/package/uuid) as your User ID. It is not recommended to use a sequential numeric ID or a user's email address as this makes it possible to easily guess other user IDs and access their data.
 
 Alternatively, you can create a simple wrapper/proxy API around remoteStorage that uses your own authentication method to verify the user's identity before allowing them to access the data. Then, you can pick a secure and secret Instance ID that is not publicly available to ensure that only your application can access the data.
 
