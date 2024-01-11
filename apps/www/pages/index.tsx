@@ -1,7 +1,7 @@
 import styles from 'styles/index.module.scss'
 import React from 'react'
-import { useInView } from 'framer-motion'
-import { Code, CopiedIcon, CopyIcon, GitHubIcon } from 'components'
+import {useInView} from 'framer-motion'
+import {Code, CopiedIcon, CopyIcon, GitHubIcon} from 'components'
 
 const packageJson = require('../../../packages/js-client/package.json')
 
@@ -28,6 +28,7 @@ export default function Index() {
     </main>
   )
 }
+
 
 //////////////////////////////////////////////////////////////////
 
