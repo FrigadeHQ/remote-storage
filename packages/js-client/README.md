@@ -119,3 +119,5 @@ localStorage is a browser API that allows you to store data in the browser. The 
 
 Yes. For this reason, we recommend using a non-iterable UUID for your user IDs. This makes it nearly impossible for users to guess other user IDs and access their data unless they know the user ID.
 
+Alternatively, you can create a simple wrapper/proxy API around remoteStorage that uses your own authentication method to verify the user's identity before allowing them to access the data. Then, you can pick a secure and secret Instance ID that is not publicly available to ensure that only your application can access the data.
+
