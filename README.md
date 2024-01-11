@@ -28,11 +28,11 @@ That's where remoteStorage comes in. Using the same API as localStorage, remoteS
 
 ## Features
 
-- 🔧 Simple API (same as localStorage)
-- 🚀 Works with all Javascript frameworks
+- ✨ Simple API (same as localStorage)
+- 👌 Works with all Javascript frameworks
 - 📦 Lightweight (~1 kB minified)
-- ✨ Open source server and client (MIT license)
-- 🍦 Free hosted community server
+- 🔓 Open source server and client (MIT license)
+- 🆓 Free hosted community server
 
 
 ## Quick start
