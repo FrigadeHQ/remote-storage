@@ -1,10 +1,10 @@
 {
-  "name": "remote-storage-website",
+  "name": "www",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm -F 'cmdk-website^...' build && next build",
+    "build": "pnpm -F 'remote-storage^...' build && next build",
     "start": "next start",
     "lint": "eslint --ext .tsx"
   },
