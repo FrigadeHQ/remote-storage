@@ -1,7 +1,7 @@
 import styles from 'styles/index.module.scss'
 import React from 'react'
-import {useInView} from 'framer-motion'
-import {Code, CopiedIcon, CopyIcon, GitHubIcon} from 'components'
+import { useInView } from 'framer-motion'
+import { Code, CopiedIcon, CopyIcon, GitHubIcon } from 'components'
 
 const packageJson = require('../../../packages/js-client/package.json')
 
@@ -102,6 +102,7 @@ function Footer() {
     once: true,
     margin: '100px',
   })
+
   return (
     <footer ref={ref} className={styles.footer} data-animate={isInView}>
       <div className={styles.footerText}>
