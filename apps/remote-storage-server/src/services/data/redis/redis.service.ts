@@ -1,8 +1,9 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import { createClient } from 'redis'
+import { DataService } from '../data-service/data-service.interface'
 
 @Injectable()
-export class RedisService implements OnModuleInit {
+export class RedisService implements OnModuleInit, DataService {
   private client: any
 
   constructor() {}

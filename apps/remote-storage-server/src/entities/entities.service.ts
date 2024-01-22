@@ -1,16 +1,17 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common'
 import { Actor, Entity } from './entities.interface'
-import { RedisService } from '../services/redis/redis.service'
+
+import { DataServiceFactory } from '../services/data/data-service/data-service.factory'
 
 const MAX_ENTITY_SIZE_BYTES = 1000000
 
 @Injectable()
 export class EntitiesService {
-  constructor(private redisService: RedisService) {}
+  constructor(private dataServiceFactory: DataServiceFactory) {}
 
   async get(actor: Actor, key: string): Promise<Entity> {
     const entityKey = this.getEntityKey(actor, key)
-    const value = await this.redisService.get(entityKey)
+    const value = await this.dataServiceFactory.getService().get(entityKey)
 
     if (!value) {
       throw new NotFoundException('Entity not found')
@@ -29,7 +30,7 @@ export class EntitiesService {
 
     const entityKey = this.getEntityKey(actor, key)
 
-    return await this.redisService.set(entityKey, value)
+    return await this.dataServiceFactory.getService().set(entityKey, value)
   }
 
   async delete(actor: Actor, key: string): Promise<void> {
@@ -38,7 +39,7 @@ export class EntitiesService {
     }
     const entityKey = this.getEntityKey(actor, key)
 
-    return await this.redisService.delete(entityKey)
+    return await this.dataServiceFactory.getService().delete(entityKey)
   }
 
   private getEntityKey(actor: Actor, key: string): string {

@@ -1,12 +1,15 @@
 import { Module } from '@nestjs/common'
 import { EntitiesService } from './entities.service'
 import { EntitiesController } from './entities.controller'
-import { RedisModule } from '../services/redis/redis.module'
+import { DataServiceModule } from '../services/data/data-service/data-service.module'
+import { DataServiceFactory } from '../services/data/data-service/data-service.factory'
+import { SqliteModule } from '../services/data/sqlite/sqlite.module'
+import { RedisModule } from '../services/data/redis/redis.module'
 
 @Module({
-  imports: [RedisModule],
+  imports: [DataServiceModule, SqliteModule, RedisModule],
   controllers: [EntitiesController],
-  providers: [EntitiesService],
+  providers: [EntitiesService, DataServiceFactory],
   exports: [EntitiesService],
 })
 export class EntitiesModule {}

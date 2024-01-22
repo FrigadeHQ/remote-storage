@@ -120,3 +120,12 @@ You can secure your calls to remote-storage by using a secret unique UUID genera
 
 Alternatively, you can create a simple wrapper/proxy API around remoteStorage that uses your own authentication method to verify the user's identity before allowing them to access the data. Then, you can pick a secure and secret Instance ID that is not publicly available to ensure that only your application can access the data.
 
+
+## Contributing
+
+Pull requests are always welcome. Note that if you are going to propose drastic changes, make sure to open an issue for discussion first. This will ensure that your PR will be accepted before you start working on it.
+
+For any existing issues that do not yet have an assigned contributor, feel free to comment on the issue if you would like to work on it. We will assign the issue to you if we think you are a good fit.
+
+**Making changes:** implement your bug fix or feature, write tests to cover it and make sure all tests are passing. Ensure your commit leverages [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) and that your commit message follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
+Then open a pull request to the main branch.

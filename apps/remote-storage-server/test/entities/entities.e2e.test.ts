@@ -1,9 +1,9 @@
 import * as request from 'supertest'
-import { Test, TestingModule } from '@nestjs/testing'
-import { INestApplication } from '@nestjs/common'
-import { EntitiesModule } from '../../src/entities/entities.module'
-import { AppModule } from '../../src/app.module'
-import { RedisService } from '../../src/services/redis/redis.service'
+import {Test, TestingModule} from '@nestjs/testing'
+import {INestApplication} from '@nestjs/common'
+import {EntitiesModule} from '../../src/entities/entities.module'
+import {AppModule} from '../../src/app.module'
+import {RedisService} from '../../src/services/data/redis/redis.service'
 
 describe('entities/', () => {
   let app: INestApplication
