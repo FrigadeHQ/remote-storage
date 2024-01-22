@@ -60,6 +60,26 @@ HTTP/1.1 200 OK
 {"foo":"bar"}
 ```
 
+## Enabling authentication with JSON Web Tokens
+We highly recommend using JSON Web Tokens (JWT) to authenticate requests to the server. This can be done by setting the `JWT_SECRET` environment variable in `.env` to your JWT secret.
+
+To learn more about JWTs and you can generate them in your application, see [this guide](https://jwt.io/introduction/).
+
+After setting up JWT authentication make sure to pass your JWTs to the remoteStorage client:
+
+```js
+const remoteStorage = new RemoteStorage({
+  serverAddress: 'http://localhost:4000',
+  userId: '123e4567-e89b-12d3-a456-426614174000'
+})
+
+remoteStorage.getItem('my-item', {
+  headers: {
+    Authorization: `Bearer ${jwt}`,
+  },
+})
+```
+
 ## Developing the server
 
 The server is built using [NestJS](https://nestjs.com/). You can find the documentation for NestJS [here](https://docs.nestjs.com/).

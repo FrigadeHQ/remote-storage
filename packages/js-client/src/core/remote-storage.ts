@@ -32,8 +32,13 @@ export class RemoteStorage {
     this.userId = userId ?? this.getUserId()
   }
 
-  async getItem<T>(key: string): Promise<T> {
-    const response = await this.call('GET', `${apiPrefix}${key}`, null)
+  /**
+   * Get an item from remote storage
+   * @param key the key that corresponds to the item to get
+   * @param fetchOptions optional fetch options to pass to the underlying fetch call. Currently only headers for authorization are supported.
+   */
+  async getItem<T>(key: string, fetchOptions?: any): Promise<T> {
+    const response = await this.call('GET', `${apiPrefix}${key}`, fetchOptions, null)
     // Check for 404 and return null if so
     if (response.status === 404) {
       return null
@@ -56,21 +61,33 @@ export class RemoteStorage {
     return JSON.parse(data) as T
   }
 
-  async setItem<T>(key: string, value: T): Promise<void> {
-    await this.call('PUT', `${apiPrefix}${key}`, value)
+  /**
+   * Set an item in remote storage
+   * @param key the key that corresponds to the item to set
+   * @param value the value to set
+   * @param fetchOptions optional fetch options to pass to the underlying fetch call. Currently only headers for authorization are supported.
+   */
+  async setItem<T>(key: string, value: T, fetchOptions?: any): Promise<void> {
+    await this.call('PUT', `${apiPrefix}${key}`, fetchOptions, value)
   }
 
-  async removeItem(key: string): Promise<void> {
-    await this.call('DELETE', `${apiPrefix}${key}`, null)
+  /**
+   * Remove an item from remote storage
+   * @param key the key that corresponds to the item to remove
+   * @param fetchOptions optional fetch options to pass to the underlying fetch call. Currently only headers for authorization are supported.
+   */
+  async removeItem(key: string, fetchOptions?: any): Promise<void> {
+    await this.call('DELETE', `${apiPrefix}${key}`, fetchOptions, null)
   }
 
-  async call(method: string, path: string, data?: any) {
+  async call(method: string, path: string, options?: any, data?: any) {
     return fetch(new URL(path, this.serverAddress).toString(), {
       method: method,
       headers: {
         'Content-Type': 'application/json',
         [HEADER_REMOTE_STORAGE_INSTANCE_ID]: this.instanceId,
         [HEADER_REMOTE_STORAGE_USER_ID]: this.userId,
+        ...options?.headers,
       },
       body: data ? JSON.stringify(data) : undefined,
     })
