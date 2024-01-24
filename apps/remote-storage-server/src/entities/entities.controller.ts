@@ -16,6 +16,8 @@ const MAX_KEY_LENGTH = 255
 @ApiTags('entities')
 @Controller()
 export class EntitiesController {
+  private jwt = require('jsonwebtoken')
+
   constructor(private readonly entitiesService: EntitiesService) {}
 
   @ApiOperation({ summary: 'Get a entity by key' })
@@ -76,6 +78,28 @@ export class EntitiesController {
 
     if (userId.length > MAX_KEY_LENGTH) {
       throw new BadRequestException(`userId cannot be longer than ${MAX_KEY_LENGTH} characters`)
+    }
+
+    // Check if JWT is enabled in feature flags. JWT automatically gets turned on when a secret is set.
+    const jwtSecret = process.env.JWT_SECRET
+    if (jwtSecret) {
+      // Check if authorization header is present
+      if (!headers['authorization']) {
+        throw new BadRequestException(
+          'No authorization header provided. When JWT is enabled, you must provide an authorization header.'
+        )
+      }
+      const token = headers['authorization'].split(' ')[1]
+      if (!token) {
+        throw new BadRequestException(
+          'No authorization token provided. When JWT is enabled, you must provide an authorization token.'
+        )
+      }
+      try {
+        this.jwt.verify(token, jwtSecret)
+      } catch (e) {
+        throw new BadRequestException('Invalid authorization token')
+      }
     }
 
     return {

@@ -30,6 +30,7 @@
     "@nestjs/platform-fastify": "^9.3.8",
     "@nestjs/schedule": "^3.0.2",
     "@nestjs/swagger": "^6.1.4",
+    "jsonwebtoken": "^9.0.2",
     "redis": "^4.6.12",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
