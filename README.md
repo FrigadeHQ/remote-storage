@@ -29,6 +29,7 @@ That's where remoteStorage comes in. Using the same API as localStorage, remoteS
 ## Features
 
 - ✨ Simple API (same as localStorage)
+- 🔐 Secure (built-in JWT support)
 - 👌 Works with all Javascript frameworks
 - 📦 Lightweight (~1 kB minified)
 - 🔓 Open source server and client (MIT license)
@@ -114,12 +115,10 @@ remoteStorage should only be used for non-sensitive data. We recommend using it 
 
 localStorage is a browser API that allows you to store data in the browser. The data is stored locally on the user's device and is not shared across devices or browsers. remoteStorage is a library that combines the localStorage API with a remote server to persist data across browsers and devices.
 
-#### Can't anyone just guess a user ID and access someone else's data?
+#### How do I authenticate requests to remoteStorage?
 
-You can secure your calls to remote-storage by using a secret unique UUID generated with a package such as [uuid](https://www.npmjs.com/package/uuid) as your User ID. It is not recommended to use a sequential numeric ID or a user's email address as this makes it possible to easily guess other user IDs and access their data.
-
-Alternatively, you can create a simple wrapper/proxy API around remoteStorage that uses your own authentication method to verify the user's identity before allowing them to access the data. Then, you can pick a secure and secret Instance ID that is not publicly available to ensure that only your application can access the data.
-
+remoteStorage can be used without any authentication, but we highly recommend using JSON Web Tokens (JWT) to authenticate requests to the server. This can be done by setting the `JWT_SECRET` environment variable in `.env` to your JWT secret for the server.
+See the [server documentation](/apps/remote-storage-server/README.md) for more information.
 
 ## Contributing
 
