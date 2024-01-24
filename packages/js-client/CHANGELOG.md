@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.4
+
+### Patch Changes
+
+- c41c252: Adds JWT support for securing your calls to remote-storage
+
 ## 1.0.3
 
 ### Patch Changes
