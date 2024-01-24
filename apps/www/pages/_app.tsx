@@ -25,7 +25,7 @@ const description = 'Easily persist data across browsers and devices.'
 const siteUrl = 'https://remote.storage'
 const packageJson = require('../../../packages/js-client/package.json')
 
-export default function App({ Component, pageProps }: AppProps) {\
+export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   useEffect(() => {
