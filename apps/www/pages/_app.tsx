@@ -1,22 +1,22 @@
 import 'styles/globals.scss'
 
-import type {AppProps} from 'next/app'
-import {ThemeProvider} from 'next-themes'
-import {NextSeo} from 'next-seo'
+import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'next-themes'
+import { NextSeo } from 'next-seo'
 import Head from 'next/head'
-import {useEffect} from 'react'
-import {useRouter} from 'next/router'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 import posthog from 'posthog-js'
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
 if (typeof window !== 'undefined') {
-  posthog.init("phc_N7OxUp5H8Tt5zZyaYevvnr748X4VserVtAvUBk0Ve17", {
+  posthog.init('phc_N7OxUp5H8Tt5zZyaYevvnr748X4VserVtAvUBk0Ve17', {
     api_host: 'https://app.posthog.com',
     // Enable debug mode in development
     loaded: (posthog) => {
       if (process.env.NODE_ENV === 'development') posthog.debug()
-    }
+    },
   })
 }
 
@@ -26,7 +26,6 @@ const siteUrl = 'https://remote.storage'
 const packageJson = require('../../../packages/js-client/package.json')
 
 export default function App({ Component, pageProps }: AppProps) {
-
   const router = useRouter()
 
   useEffect(() => {
@@ -38,6 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [])
+
   return (
     <>
       <Head>
