@@ -6,7 +6,7 @@ import { DataService } from '../data-service/data-service.interface'
 export class RedisService implements OnModuleInit, DataService {
   private client: any
 
-  constructor() {}
+  constructor() { }
 
   async onModuleInit() {
     try {
@@ -22,13 +22,18 @@ export class RedisService implements OnModuleInit, DataService {
   }
 
   async get(key: string) {
-    const value = await this.client.get(key)
-    return value ? JSON.parse(value) : null
+    const storedData = await this.client.get(key);
+    return storedData ? JSON.parse(storedData).value : null;
   }
 
-  async set(key: string, value: any) {
-    return this.client.set(key, JSON.stringify(value))
+  async set(key: string, value: any, timestamp: number) {
+    const currentValue = await this.get(key);
+    if (currentValue && currentValue.timestamp > timestamp) {
+      return false;
+    }
+    return this.client.set(key, JSON.stringify({ value, timestamp }));
   }
+
 
   async delete(key: string) {
     return this.client.del(key)
