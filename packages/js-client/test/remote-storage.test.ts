@@ -55,6 +55,13 @@ describe('global storage', () => {
     expect(value).toEqual('value')
   })
 
+  it('should be able to set and get an array', async () => {
+    const remoteStorage = new RemoteStorage(getConfig())
+    await remoteStorage.setItem('key', ['foo', 'bar'])
+    const value = await remoteStorage.getItem<string[]>('key')
+    expect(value).toEqual(['foo', 'bar'])
+  })
+
   it('should be able to set and get an object', async () => {
     const remoteStorage = new RemoteStorage(getConfig())
     await remoteStorage.setItem('key', { foo: 'bar' })

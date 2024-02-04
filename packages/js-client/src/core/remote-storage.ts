@@ -45,7 +45,7 @@ export class RemoteStorage {
     }
     const data = await response.text()
     // Check if valid JSON
-    if (!data.startsWith('{')) {
+    if (!data.startsWith('{') && !data.startsWith('[')) {
       if (data === 'true') {
         return true as unknown as T
       }
