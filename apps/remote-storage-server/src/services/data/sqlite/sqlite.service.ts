@@ -5,7 +5,7 @@ import { DataService } from '../data-service/data-service.interface'
 export class SqliteService implements OnModuleInit, DataService {
   private db = null
   private sqlite3 = require('sqlite3')
-  constructor() { }
+  constructor() {}
 
   async onModuleInit() {
     try {
@@ -22,46 +22,40 @@ export class SqliteService implements OnModuleInit, DataService {
     return new Promise((resolve, reject) => {
       this.db.get('SELECT value, timestamp FROM kv WHERE key = ?', [key], (err, row) => {
         if (err) {
-          reject(err);
+          reject(err)
         } else if (row) {
-          const data = JSON.parse(row.value);
-          resolve(data);
+          const data = JSON.parse(row.value)
+          resolve(data)
         } else {
-          resolve(null);
+          resolve(null)
         }
       })
-    });
+    })
   }
-
 
   async set(key: string, value: any, timestamp: number): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.db.get(
-        'SELECT value, timestamp FROM kv WHERE key = ?',
-        [key],
-        (err, row) => {
-          if (err) {
-            reject(err);
-          } else if (row && row.timestamp > timestamp) {
-            reject(new Error('Conflict detected'));
-          } else {
-            this.db.run(
-              'INSERT INTO kv (key, value, timestamp) VALUES (?, ?, ?) ON CONFLICT(key) DO UPDATE SET value = ?, timestamp = ?',
-              [key, JSON.stringify(value), timestamp, JSON.stringify(value), timestamp],
-              (err) => {
-                if (err) {
-                  reject(err);
-                } else {
-                  resolve();
-                }
+      this.db.get('SELECT value, timestamp FROM kv WHERE key = ?', [key], (err, row) => {
+        if (err) {
+          reject(err)
+        } else if (row && row.timestamp > timestamp) {
+          reject(new Error('Conflict detected'))
+        } else {
+          this.db.run(
+            'INSERT INTO kv (key, value, timestamp) VALUES (?, ?, ?) ON CONFLICT(key) DO UPDATE SET value = ?, timestamp = ?',
+            [key, JSON.stringify(value), timestamp, JSON.stringify(value), timestamp],
+            (err) => {
+              if (err) {
+                reject(err)
+              } else {
+                resolve()
               }
-            );
-          }
+            }
+          )
         }
-      );
-    });
+      })
+    })
   }
-
 
   async delete(key: string): Promise<void> {
     return new Promise((resolve, reject) => {
