@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.5
+
+### Patch Changes
+
+- 7c3c492: Fixes an issue with arrays being interpreted as non-JSON
+
 ## 1.0.4
 
 ### Patch Changes
