@@ -11,7 +11,7 @@ export class SqliteService implements OnModuleInit, DataService {
     try {
       this.db = new this.sqlite3.Database('./database.sqlite')
       await this.db.run(
-        'CREATE TABLE IF NOT EXISTS kv (key TEXT PRIMARY KEY, value TEXT, timestamp INTEGER); CREATE INDEX IF NOT EXISTS key_index ON kv (key)'
+        'CREATE TABLE IF NOT EXISTS kv (key TEXT PRIMARY KEY, value TEXT, timestamp INTEGER); CREATE INDEX IF NOT EXISTS key_index ON kv (key); ALTER TABLE kv ADD COLUMN timestamp INTEGER '
       )
     } catch (e) {
       console.error('Failed to initialize sqlite database', e)
