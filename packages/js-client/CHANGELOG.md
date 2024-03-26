@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.6
+
+### Patch Changes
+
+- 9d0ea6c: Adds a minified version of the library that can be included in browsers without npm
+
 ## 1.0.5
 
 ### Patch Changes
