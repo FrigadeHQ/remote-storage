@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup",
+    "build": "tsup && tsup --config tsup.dist.config.ts && mv dist/index.min.js dist/remote-storage.min.js",
     "test": "jest",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "local-release": "tsup"
