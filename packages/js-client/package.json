@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup && tsup --config tsup.dist.config.ts && mv dist/index.min.js dist/remote-storage.min.js",
+    "build": "tsup && sh browser-build.sh",
     "test": "jest",
     "lint": "eslint --fix --ext .ts,.tsx .",
     "local-release": "tsup"
@@ -64,6 +64,7 @@
   },
   "homepage": "https://github.com/FrigadeHQ/remote-storage",
   "dependencies": {
-    "cross-fetch": "^4.0.0"
+    "cross-fetch": "^4.0.0",
+    "esbuild": "^0.20.2"
   }
 }
