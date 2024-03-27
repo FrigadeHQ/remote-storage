@@ -13,7 +13,7 @@ export interface DataService {
    * @param key
    * @param value
    */
-  set(key: string, value: any): Promise<void>
+  set(key: string, value: any, timestamp: number): Promise<void>
 
   /**
    * Delete a value by key

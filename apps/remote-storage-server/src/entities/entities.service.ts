@@ -29,8 +29,7 @@ export class EntitiesService {
     }
 
     const entityKey = this.getEntityKey(actor, key)
-
-    return await this.dataServiceFactory.getService().set(entityKey, value)
+    return await this.dataServiceFactory.getService().set(entityKey, value, new Date().getTime())
   }
 
   async delete(actor: Actor, key: string): Promise<void> {
