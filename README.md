@@ -43,6 +43,12 @@ Install the library using your favorite package manager:
 npm install remote-storage
 ```
 
+Or simply include it in your HTML:
+
+```html
+<script src="https://unpkg.com/remote-storage@latest/dist/remote-storage.min.js" sync></script>
+```
+
 Import the library and use it like you would localStorage:
 
 ```javascript
