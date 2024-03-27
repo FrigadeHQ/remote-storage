@@ -1,5 +1,11 @@
 # remote-storage
 
+## 1.0.7
+
+### Patch Changes
+
+- 2e58ee6: Switches to esbuild for browser-based building
+
 ## 1.0.6
 
 ### Patch Changes
